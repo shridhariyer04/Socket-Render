@@ -1,7 +1,7 @@
 {
   "name": "socket-server",
   "version": "1.0.0",
-  "main": "socket-server.ts",
+  "main": "build/socket-server.js",
   "type": "module",
   "scripts": {
     "dev": "ts-node socket-server.ts",
