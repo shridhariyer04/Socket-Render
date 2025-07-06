@@ -1,22 +1,21 @@
 {
   "name": "socket-server",
   "version": "1.0.0",
-  "main": "build/socket-server.js",
+  "main": "socket-server.js",
   "type": "module",
   "scripts": {
-    "dev": "ts-node --esm socket-server.ts",
-    "start": "node build/socket-server.js",
-    "build": "tsc"
+    "start": "node socket-server.js",
+    "dev": "nodemon socket-server.js"
   },
   "dependencies": {
-    "dotenv": "^17.0.1",
+    "dotenv": "^16.4.5",
     "express": "^4.21.2",
     "socket.io": "^4.7.2"
   },
   "devDependencies": {
-    "@types/express": "^5.0.3",
-    "@types/node": "^20.0.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.4.0"
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

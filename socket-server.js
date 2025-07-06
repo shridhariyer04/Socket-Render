@@ -18,40 +18,21 @@ const io = new Server(server, {
   },
 });
 
-// Types
-interface LinkPayload {
-  boardId: string;
-  collectionId: string;
-  link: {
-    id: string;
-    title: string;
-    url: string;
-    createdAt?: string;
-  };
-}
-
-interface UpdateLinkPayload extends LinkPayload {
-  fields: Partial<{
-    title: string;
-    url: string;
-  }>;
-}
-
 // Socket Handling
 io.on("connection", (socket) => {
   console.log("🟢 Connected:", socket.id);
 
-  socket.on("join-board", (boardId: string) => {
+  socket.on("join-board", (boardId) => {
     socket.join(boardId);
     console.log(`🔗 ${socket.id} joined board: ${boardId}`);
 
-    socket.on("add-link", (data: LinkPayload) => {
+    socket.on("add-link", (data) => {
       const { boardId, collectionId, link } = data;
       console.log(`📌 Link added to collection ${collectionId} on board ${boardId}`);
       io.to(boardId).emit("link-added", { collectionId, link });
     });
 
-    socket.on("update-link", (data: UpdateLinkPayload) => {
+    socket.on("update-link", (data) => {
       const { boardId, collectionId, link, fields } = data;
       io.to(boardId).emit("link-updated", {
         collectionId,
@@ -60,7 +41,7 @@ io.on("connection", (socket) => {
       });
     });
 
-    socket.on("delete-link", (data: { boardId: string; collectionId: string; linkId: string }) => {
+    socket.on("delete-link", (data) => {
       io.to(data.boardId).emit("link-deleted", data);
     });
   });
