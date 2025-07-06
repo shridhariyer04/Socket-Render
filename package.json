@@ -4,19 +4,18 @@
   "main": "build/socket-server.js",
   "type": "module",
   "scripts": {
-    "dev": "ts-node socket-server.ts",
+    "dev": "ts-node --esm socket-server.ts",
     "start": "node build/socket-server.js",
     "build": "tsc"
   },
   "dependencies": {
     "dotenv": "^17.0.1",
     "express": "^4.21.2",
-    "http": "^0.0.1-security",
-    "socket-server": "^0.0.4",
     "socket.io": "^4.7.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/node": "^20.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.4.0"
   }

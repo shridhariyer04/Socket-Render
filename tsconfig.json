@@ -6,9 +6,13 @@
     "outDir": "build",
     "rootDir": ".",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": false,
+    "sourceMap": false
   },
-  "include": ["socket-server.ts"]
+  "include": ["socket-server.ts"],
+  "exclude": ["node_modules", "build"]
 }
